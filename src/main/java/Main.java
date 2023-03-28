@@ -1,14 +1,22 @@
 import org.mindrot.jbcrypt.BCrypt;
 
-public class Main {
-    public static void main(String[] args) {
-        String password = "password";
-        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-        System.out.println(password);
-        System.out.println(hashed);
+import java.sql.Connection;
+import java.sql.SQLException;
 
-        if (BCrypt.checkpw(password,hashed)) {
-            System.out.println("OK");
+public class Main {
+
+    public static void main(String[] args) {
+        User user = new User()
+                .setEmail("testowy@gmail.com")
+                .setUserName("testowanazwa")
+                .setPassword("testowe");
+        UserDao userDao = new UserDao();
+        try {
+            userDao.createUser(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+
     }
 }
