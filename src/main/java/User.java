@@ -24,37 +24,51 @@ public class User {
         return id;
     }
 
-//    public User setId(long id) {
-//        this.id = id;
-//        return this;
-//    }
+    public User setIdUser(long id) {
+        this.id = id;
+        return this;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
     }
 
-    public User setEmail(String email) {
+    public User setEmailUser(String email) {
         this.email = email;
         return this;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public User setUserName(String userName) {
+    public User setUserNameUser(String userName) {
         this.userName = userName;
         return this;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public User setPassword(String password) {
+    public User setPasswordUser(String password) {
         this.password = password;
         return this;
     }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     @Override
     public String toString() {
