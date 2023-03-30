@@ -1,21 +1,24 @@
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     private static final String CREATE_QUERY = "INSERT INTO users(email, username, password) VALUES (?, ?, ?);";
     private static final String SELECT_BY_EMAIL_QUERY = "SELECT * FROM users WHERE email = ?;";
     private static final String UPDATE_USER_QUERY = "UPDATE users SET email = ?, username = ? , password = ? WHERE email = ?;";
     private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE email = ?;";
+    private static final String SELECT_ALL_USERS_QUERY = "SELECT * FROM users;";
 
     private String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
-    public void isUserExist(User user){
+    public void isUserExist(User user) {
         try (Connection connection = DbUtil.getConnection()) {
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new UserNotFoundExeption(user.getEmail());
         }
     }
@@ -85,13 +88,35 @@ public class UserDao {
         }
     }
 
-    public void delete(String email){
+    public void delete(String email) {
         try (Connection connection = DbUtil.getConnection();
-        PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY)) {
-            statement.setString(1,email);
+             PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY)
+        ) {
+            statement.setString(1, email);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new UserNotFoundExeption(email);
+        }
+    }
+
+    public List<User> findAll() {
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_ALL_USERS_QUERY)
+        ) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                List<User> users= new ArrayList<>();
+            while(resultSet.next()){
+                User user = new User()
+                        .setIdUser(resultSet.getLong("id"))
+                        .setEmailUser(resultSet.getString("email"))
+                        .setUserNameUser(resultSet.getString("username"))
+                        .setPasswordUser(resultSet.getString("password"));
+                users.add(user);
+            }
+            return users;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

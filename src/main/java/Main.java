@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -38,13 +39,22 @@ public class Main {
         //usuwanie użytkownika działa
 //        UserDao userDao = new UserDao();
 //        userDao.delete("testowy3@gmail.com");
-//Modyfikacja użytkownika
+
+        //Odczyt wszystkich działa
         UserDao userDao = new UserDao();
-        User user = userDao.read("testowy3@gmail.com");
-        user.setEmailUser("testowy10@gmail.com")
-                .setUserNameUser("testowy10")
-                .setPassword("haselko10");
-        userDao.update(user);
+        List<User> list = userDao.findAll();
+        for (User element: list) {
+            System.out.println(element);
+
+        }
+
+//Modyfikacja użytkownika
+//        UserDao userDao = new UserDao();
+//        User user = userDao.read("testowy3@gmail.com");
+//        user.setEmailUser("testowy10@gmail.com")
+//                .setUserNameUser("testowy10")
+//                .setPassword("haselko10");
+//        userDao.update(user);
 
 //        User user = userDao.read("testowy3@gmail.com");
 //        System.out.println(user.toString());
