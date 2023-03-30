@@ -35,6 +35,9 @@ public class Main {
 //
 //        System.out.println(user);
 
+        //usuwanie użytkownika działa
+//        UserDao userDao = new UserDao();
+//        userDao.delete("testowy3@gmail.com");
 //Modyfikacja użytkownika
         UserDao userDao = new UserDao();
         User user = userDao.read("testowy3@gmail.com");
@@ -42,8 +45,6 @@ public class Main {
                 .setUserNameUser("testowy10")
                 .setPassword("haselko10");
         userDao.update(user);
-
-
 
 //        User user = userDao.read("testowy3@gmail.com");
 //        System.out.println(user.toString());

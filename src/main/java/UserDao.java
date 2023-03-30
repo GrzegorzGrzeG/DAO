@@ -6,6 +6,7 @@ public class UserDao {
     private static final String CREATE_QUERY = "INSERT INTO users(email, username, password) VALUES (?, ?, ?);";
     private static final String SELECT_BY_EMAIL_QUERY = "SELECT * FROM users WHERE email = ?;";
     private static final String UPDATE_USER_QUERY = "UPDATE users SET email = ?, username = ? , password = ? WHERE email = ?;";
+    private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE email = ?;";
 
     private String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
@@ -81,6 +82,16 @@ public class UserDao {
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void delete(String email){
+        try (Connection connection = DbUtil.getConnection();
+        PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY)) {
+            statement.setString(1,email);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new UserNotFoundExeption(email);
         }
     }
 
