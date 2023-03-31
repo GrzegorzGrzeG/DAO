@@ -12,21 +12,5 @@ public class DbUtil {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 
-    public static void printAllData(Connection connection, String query) throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()) {
-            while (resultSet.next()) {
-                long id = resultSet.getLong("id");
-                String email = resultSet.getString("email");
-                String userName = resultSet.getString("username");
-                String password = resultSet.getString("password");
-
-                System.out.println(id + "\t" + email + "\t" + userName + "\t" + password);
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
 
 }
