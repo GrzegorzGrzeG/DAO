@@ -1,4 +1,10 @@
+package pl.coderslab.entity;
+
 import org.mindrot.jbcrypt.BCrypt;
+import pl.coderslab.DbUtil;
+import pl.coderslab.UserCannotBeCreated;
+import pl.coderslab.UserNotFoundExeption;
+import pl.coderslab.entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,7 +43,7 @@ public class UserDao {
             try (ResultSet resultSet = statement.getGeneratedKeys()) {
                 if (resultSet.next()) {
                     long generetedId = resultSet.getLong(1);
-                    //return new User(generetedId, user.getEmail(), user.getUserName(), hashed);
+                    //return new pl.coderslab.entity.User(generetedId, user.getEmail(), user.getUserName(), hashed);
                     return user;
                 } else {
                     throw new UserCannotBeCreated(user.getEmail(), user.getUserName(), hashed);

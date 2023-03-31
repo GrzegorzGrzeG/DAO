@@ -1,5 +1,8 @@
-import java.sql.Connection;
-import java.sql.SQLException;
+package pl.coderslab;
+
+import pl.coderslab.entity.User;
+import pl.coderslab.entity.UserDao;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,12 +21,12 @@ public class Main {
 
     public static void main(String[] args) {
         //Dodawanie nowego użytkownika działa
-//        User user = new User()
+//        pl.coderslab.entity.User user = new pl.coderslab.entity.User()
 //                .setEmailUser("testowy3@gmail.com")
 //                .setUserNameUser("testowanazwa3")
 //                .setPasswordUser("testowe2");
 //
-//        UserDao userDao = new UserDao();
+//        pl.coderslab.entity.UserDao userDao = new pl.coderslab.entity.UserDao();
 //        try {
 //            userDao.createUser(user);
 //        } catch (SQLException e) {
@@ -31,13 +34,13 @@ public class Main {
 //        }
 //
         //ODCZYT użytkownika działa
-//        UserDao userDao = new UserDao();
-//        User user = userDao.read("abacki@gmail.com");
+//        pl.coderslab.entity.UserDao userDao = new pl.coderslab.entity.UserDao();
+//        pl.coderslab.entity.User user = userDao.read("abacki@gmail.com");
 //
 //        System.out.println(user);
 
         //usuwanie użytkownika działa
-//        UserDao userDao = new UserDao();
+//        pl.coderslab.entity.UserDao userDao = new pl.coderslab.entity.UserDao();
 //        userDao.delete("testowy3@gmail.com");
 
         //Odczyt wszystkich działa
@@ -49,18 +52,18 @@ public class Main {
         }
 
 //Modyfikacja użytkownika
-//        UserDao userDao = new UserDao();
-//        User user = userDao.read("testowy3@gmail.com");
+//        pl.coderslab.entity.UserDao userDao = new pl.coderslab.entity.UserDao();
+//        pl.coderslab.entity.User user = userDao.read("testowy3@gmail.com");
 //        user.setEmailUser("testowy10@gmail.com")
 //                .setUserNameUser("testowy10")
 //                .setPassword("haselko10");
 //        userDao.update(user);
 
-//        User user = userDao.read("testowy3@gmail.com");
+//        pl.coderslab.entity.User user = userDao.read("testowy3@gmail.com");
 //        System.out.println(user.toString());
 
-//        try(Connection connection = DbUtil.getConnection()){
-//            DbUtil.printAllData(connection, QUERY);
+//        try(Connection connection = pl.coderslab.DbUtil.getConnection()){
+//            pl.coderslab.DbUtil.printAllData(connection, QUERY);
 //        }catch (SQLException e){
 //            throw new RuntimeException(e);
 //        }
