@@ -52,29 +52,30 @@ public class Main {
                 .setPasswordUser(password);
         userDao.update(user);
     }
-    public static void readUser(String email){
+
+    public static void readUser(String email) {
         UserDao userDao = new UserDao();
         User user = userDao.read(email);
         System.out.println(user);
 
     }
-    public static void readUser(long id){
+
+    public static void readUser(long id) {
         UserDao userDao = new UserDao();
         User user = userDao.read(id);
         System.out.println(user);
 
     }
-    public static void deleteUser(String email){
+
+    public static void deleteUser(String email) {
         UserDao userDao = new UserDao();
         userDao.delete(email);
     }
 
     public static void main(String[] args) {
-
         boolean exit = false;
         listofUsers();
         while (!exit) {
-
             System.out.println("c - Create new User");
             System.out.println("u - update User");
             System.out.println("r - read User");
@@ -91,7 +92,6 @@ public class Main {
                     String username = userInput();
                     System.out.println("Password:");
                     String password = userInput();
-
                     createUser(email, username, password);
                     listofUsers();
                     break;
@@ -114,7 +114,7 @@ public class Main {
                     System.out.println("e - email");
                     System.out.println("i - id");
                     String readOption = userInput();
-                    if(readOption.equalsIgnoreCase("e")){
+                    if (readOption.equalsIgnoreCase("e")) {
                         System.out.println("Email");
                         String readEmail = userInput();
                         readUser(readEmail);
@@ -122,7 +122,7 @@ public class Main {
                         System.out.println("Id");
                         long readId = Long.parseLong(userInput());
                         readUser(readId);
-                    }else{
+                    } else {
                         System.out.println("Error");
                     }
                     break;
@@ -131,7 +131,6 @@ public class Main {
                     System.out.println("Email");
                     String delete = userInput();
                     deleteUser(delete);
-
                     listofUsers();
                     break;
                 case "l":

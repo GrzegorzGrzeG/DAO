@@ -65,6 +65,7 @@ public class UserDao {
         }
 
     }
+
     public User read(long id) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID_QUERY)
@@ -84,10 +85,8 @@ public class UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-    //UPDATE users SET email = ?, username = ? , password = ? WHERE id = ?;
     public void update(User user) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_USER_QUERY)

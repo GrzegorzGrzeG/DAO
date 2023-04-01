@@ -30,6 +30,7 @@ public class User {
         this.id = id;
         return this;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -55,6 +56,7 @@ public class User {
         this.userName = userName;
         return this;
     }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -67,13 +69,13 @@ public class User {
         this.password = password;
         return this;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-
     @Override
     public String toString() {
         return id + "\t" + email + "\t" + userName + "\t" + password;
-     }
+    }
 }
