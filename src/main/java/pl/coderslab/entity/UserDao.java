@@ -65,7 +65,7 @@ public class UserDao {
         }
 
     }
-    public User readById(long id) {
+    public User read(long id) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID_QUERY)
         ) {

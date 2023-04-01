@@ -53,7 +53,7 @@ public class Main {
 
 //Modyfikacja użytkownika dziala
         UserDao userDao = new UserDao();
-        User user = userDao.readById(11);
+        User user = userDao.read(11);
 
         System.out.println(user);
         user.setEmailUser("testowy10@gmail.com")
