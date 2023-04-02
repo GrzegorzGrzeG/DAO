@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.grzegorz;
 
 public class UserCannotBeCreated extends RuntimeException{
     private static final String ERROR_MSG = "USER email: %s Username: %s Password: %s cannot be created";

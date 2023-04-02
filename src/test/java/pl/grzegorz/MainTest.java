@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.grzegorz;
 
 public class MainTest {
 

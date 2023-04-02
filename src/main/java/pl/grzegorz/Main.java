@@ -1,7 +1,7 @@
-package pl.coderslab;
+package pl.grzegorz;
 
-import pl.coderslab.entity.User;
-import pl.coderslab.entity.UserDao;
+import pl.grzegorz.entity.User;
+import pl.grzegorz.entity.UserDao;
 
 import java.sql.SQLException;
 import java.util.List;

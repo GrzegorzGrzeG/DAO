@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.grzegorz;
 
 public class UserNotFoundExeption extends RuntimeException {
     private static final String ERROR_MSG = "User for given email/id %s not found";

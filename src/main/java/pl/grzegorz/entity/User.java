@@ -1,4 +1,4 @@
-package pl.coderslab.entity;
+package pl.grzegorz.entity;
 
 public class User {
     private long id;

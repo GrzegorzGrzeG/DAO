@@ -1,9 +1,9 @@
-package pl.coderslab.entity;
+package pl.grzegorz.entity;
 
 import org.mindrot.jbcrypt.BCrypt;
-import pl.coderslab.DbUtil;
-import pl.coderslab.UserCannotBeCreated;
-import pl.coderslab.UserNotFoundExeption;
+import pl.grzegorz.DbUtil;
+import pl.grzegorz.UserCannotBeCreated;
+import pl.grzegorz.UserNotFoundExeption;
 
 
 import java.sql.*;
